@@ -34,19 +34,19 @@ INSTALLED_APPS = [
     'dashboard',
     'materials',
     'storages'
-    
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -124,18 +124,17 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),]
+    os.path.join(BASE_DIR, 'static'), ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-
-#media storage
+# media storage
 AWS_ACCESS_KEY_ID = 'AKIAUYXWUJLFSXLZBAG6'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'sipbucket101'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' %AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl' : 'maxx-age=86400'}
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'maxx-age=86400'}
 AWS_DEFAULT_ACL = 'public-read'
 
 DEFAULT_FILE_STORAGE = 'website.storages.MediaStore'
