@@ -1,0 +1,179 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="pricing-table1-d" data-rv-view="59" style="background-color: rgb(163, 143, 132);">
+    
+    <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+        <div class="row">
+            <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-3 col-sm-6">
+                <div class="mbr-plan__box">
+                    <div class="mbr-plan__header">
+                        <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                            <h3 class="mbr-header__text">LECTURE UPDATES</h3>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__number">
+                        <div class="mbr-number mbr-number--price">
+                            <div class="mbr-number__num">
+                                <div class="mbr-number__group">
+                                    <sup class="mbr-number__left">.</sup><span class="mbr-number__value">{{LN}}</span>
+                                </div>
+                            </div>
+                            <div class="mbr-number__caption">.....</div>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__details"> {% if LN %}
+                    <p><strong>Your course Rep has uploaded {{LN}}</strong>&nbsp; <strong>lecture {% if LN > 1 %}
+                    updates
+                    {% else %} update
+                    {% endif %} on the website your next </strong><strong>lecture on {{FLU.course_name}} is on {{FLU.time_start}} Click the button&nbsp;</strong><strong>below to see your lecture updates</strong></p></div>
+                    {% else %}
+                     <p><strong> Your Course Rep hasn't posted anything in the group about lecture update... its possible you don't have any lectures today check the section on course rep information below to confirm </strong></p></div>
+                    {% endif %}
+                    <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'lecture_update' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">Check Lecture Updates</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mbr-plan col-xs-12 mbr-plan--warning col-md-3 col-sm-6">
+                <div class="mbr-plan__box">
+                    <div class="mbr-plan__header">
+                        <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                            <h3 class="mbr-header__text">PENDING ASSIGNMENTS </h3>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__number">
+                        <div class="mbr-number mbr-number--price">
+                            <div class="mbr-number__num">
+                                <div class="mbr-number__group">
+                                    <sup class="mbr-number__left">.</sup><span class="mbr-number__value">{{AN}}</span>
+                                </div>
+                            </div>
+                            <div class="mbr-number__caption">....</div>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__details">{% if AN %}
+                    <p>&nbsp;<strong>You have {{AN}} {% if AN > 1 %}
+                    assignments
+                    {% else %}
+                    assignment
+                    {% endif %} yet to be </strong>&nbsp;<strong>submitted....... Your assignment on {{LA.course_name}}</strong>&nbsp; <strong>is&nbsp;</strong><strong>supposed </strong>&nbsp;<strong>to be submitted on {{LA.assignment_dueDate}}..</strong>&nbsp;<strong>Click the b</strong><strong>utton below to see all your pending&nbsp;assignments</strong></p></div>
+                    {% else %}
+                       <p>&nbsp;<strong> Your course rep hasn't posted any pending assignments yet... Happy Flexing!!!...Don't forget to check the group later just incase things gets updated </strong></p></div>
+                    {% endif %}
+                    <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'pending_assignment' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">Pending Assignments</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mbr-plan col-xs-12 mbr-plan--warning col-md-3 col-sm-6">
+                <div class="mbr-plan__box">
+                    <div class="mbr-plan__header">
+                        <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                            <h3 class="mbr-header__text">UPCOMING TESTS</h3>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__number">
+                        <div class="mbr-number mbr-number--price">
+                            <div class="mbr-number__num">
+                                <div class="mbr-number__group">
+                                    <sup class="mbr-number__left">.</sup><span class="mbr-number__value">{{TN}}</span>
+                                </div>
+                            </div>
+                            <div class="mbr-number__caption">..........</div>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__details">{% if TN %}
+                    <p><strong>You have {{TN}} {% if TN > 1 %}
+                        tests                    
+                    {% else %}
+                    test
+                    {% endif %} you haven't written...</strong>&nbsp; <strong>Your latest&nbsp;</strong><strong>test is on the course {{LT.course_name}} and you are going&nbsp;</strong>&nbsp;<strong>to be</strong><strong>&nbsp;writing it on {{LT.test_time}}. Click the button&nbsp;</strong><strong>below&nbsp;</strong><strong>to see all your upcoming tests</strong></p></div>
+                    {% else %}
+                    <p><strong>No Upcoming tests have been updated on this website... Its very possible you don't have any test for now</strong></p></div>
+                    {% endif %}
+                    <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'upcoming_test' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">SEE UPCOMING TESTS</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--last col-md-3 col-sm-6">
+                <div class="mbr-plan__box">
+                    <div class="mbr-plan__header">
+                        <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                            <h3 class="mbr-header__text">IMPORTANT INFORMATION</h3>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__number">
+                        <div class="mbr-number mbr-number--price">
+                            <div class="mbr-number__num">
+                                <div class="mbr-number__group">
+                                    <sup class="mbr-number__left">.</sup><span class="mbr-number__value">{{IN}}</span>
+                                </div>
+                            </div>
+                            <div class="mbr-number__caption"></div>
+                        </div>
+                    </div>
+                    <div class="mbr-plan__details"> {% if IN %}
+                    <p><strong>Your Course rep  posted something</strong>&nbsp;&nbsp;<strong>on the group about '{{LI}}'... Click the </strong><strong>button&nbsp; below to get full information&nbsp;</strong><strong>about </strong><strong>what he &nbsp;posted</strong></p><p></p><ul><li></li></ul><p></p></div>
+                    {% else %}
+                     <p><strong>Your Course rep hasn't posted any information on the website yet</strong></p></div>
+                    {% endif %} 
+                    <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'important_information' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">COURSE REP UPDATES</a></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<section class="mbr-section mbr-section--relative mbr-section--short-paddings" id="msg-box2-e" data-rv-view="62" style="background-color: rgb(163, 143, 132);">
+
+    
+
+    <div class="mbr-section__container mbr-section__container--isolated container" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="row">
+            <div class="mbr-box mbr-box--fixed mbr-box--adapted">
+                <div class="mbr-box__magnet mbr-box__magnet--top-left mbr-section__left col-sm-8">
+                    <div class="mbr-section__container">
+                        <div>
+                            <h4> You are currently logged in as:</h4>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">USERNAME :</th>
+                                        <td>  {{current.first_name}} {{current.last_name}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">DEPARTMENT :</th>
+                                        <td>    {{gr_id.department}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">LEVEL :</th>
+                                        <td>   {{gr_id.level}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="mbr-box__magnet mbr-box__magnet--top-left mbr-section__right col-sm-4">
+                    <div class="mbr-section__container">
+                        <div class="mbr-buttons mbr-buttons--auto-align mbr-buttons--top mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-default" href="{% url 'display_profile' %}">UPDATE PROFILE</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}
+
+

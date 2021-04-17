@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+
+
+
+
+#dropdown-menu-7 .hide-buttons [data-button] {
+  display: none !important;
+}
+#dropdown-menu-7 .navbar-brand a {
+  font-size: 18px;
+  font-family: 'Bitter', serif;
+}
+#dropdown-menu-7 .nav .link,
+#dropdown-menu-7 .dropdown-item {
+  font-size: 1em;
+  color: #fcecec;
+  font-family: 'Montserrat', sans-serif;
+}
+#dropdown-menu-7 .navbar,
+#dropdown-menu-7 .dropdown-menu {
+  background: #18184c;
+}
+#dropdown-menu-7 .dropdown-menu .dropdown-toggle[aria-expanded="true"],
+#dropdown-menu-7 .dropdown-menu a:hover,
+#dropdown-menu-7 .dropdown-menu a:focus {
+  background: #f9a72c;
+}
+#dropdown-menu-7 .navbar-toggler {
+  color: #05f5ea;
+}
+#dropdown-menu-7 A {
+  font-family: 'Oswald', sans-serif;
+}
+#pricing-table1-d DIV {
+  color: #d14841;
+  text-align: center;
+}
+#pricing-table1-d .mbr-plan__details {
+  color: #000000;
+  font-family: 'Lora', serif;
+  text-align: left;
+  font-size: 13px;
+}
+#pricing-table1-d SPAN {
+  color: #2969b0;
+  font-size: 100px;
+}
+#pricing-table1-d H3 {
+  text-align: left;
+  color: #ffffff;
+  font-size: 15px;
+}
+#pricing-table1-d SUP {
+  font-size: 9px;
+}
+#pricing-table1-d .btn {
+  font-size: 12px;
+}
+#msg-box2-e .mbr-header .mbr-header__text {
+  color: #252525;
+  font-size: 13px;
+  font-family: 'Lato', sans-serif;
+  text-align: right;
+}
+#msg-box2-e .mbr-article {
+  color: #252525;
+}

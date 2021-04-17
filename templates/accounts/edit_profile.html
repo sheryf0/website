@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html' %} <!--here im trying to extend the base template-->
+{% load crispy_forms_tags %}
+{% block nav %} {% endblock nav %}
+{% block title %} Edit your Account {%endblock title%} <!--this part is just what decides what the template title will be like-->
+
+
+{% block form_title %}EDIT ACCOUNT {% endblock form_title %}  
+
+{% if messages%}
+<ul class = "messages">
+    {% for message in messages %}
+    <div class = "alert alert- {{message.tags}}"> 
+        {{message}}
+    </div>
+      {% endfor %}
+</ul>
+{% endif %}
+
+{%block form %}
+<form method="POST" action="" class = "text-warning">
+    {% csrf_token %}
+    {{form|crispy }}
+
+    <div class= "form-group">
+        <button class="btn btn-warning" type="submit"> Edit Account </button>
+    </div>
+</form>
+{% endblock form %} 
+
+{% block talks %}
+
+{% endblock talks %} 
+

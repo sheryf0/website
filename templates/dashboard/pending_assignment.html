@@ -1,0 +1,105 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% if current.is_courseRep %}
+ <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"  style="background-color: rgb(163, 143, 132);">
+ <div>
+ <a class="btn btn-info" href = "{% url 'add_pending_assignment' %}"  role="button"> Add pending assignment</a>
+ </div>
+ </section>
+
+{% else %}
+{% endif %}
+ <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="pricing-table1-d" data-rv-view="59" style="background-color: rgb(163, 143, 132);">
+      {% if AN > 0 %}
+      <!---will add a for loop tto put thing ]s inside box-->
+         {% for assignment in PA %}
+            <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class=""></h3>
+                             </div>
+                        </div>
+                   <div class="mbr-plan__details">
+                    <p><strong>
+                        <table class = "table  table-bordered table-stripped">
+                            <tbody>
+                                <tr>
+                                    <th scope = "row" >COURSE NAME:</th>
+                                    <td class= "table-info">{{assignment.course_name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >QUESTION:</th>
+                                    <td class= "table-info">{{assignment.assignment_question}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >TO BE SUBMITTED TO:</th>
+                                    <td class= "table-info">{{assignment.submitted_to_who}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >WHERE TO SUBMIT THE ASSIGNMENT:</th>
+                                    <td class= "table-info">{{assignment.where_to_submit}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >DEADLINE FOR SUBMISSION:</th>
+                                    <td class= "table-info">{{assignment.assignment_dueDate}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >ASSIGNMENT MARKS:</th>
+                                    <td class= "table-info">{{assignment.assignment_marks}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope = "row" >AUTHOR:</th>
+                                    <td class= "table-info">{{assignment.author}}</td>
+                                </tr>
+
+                               
+                            </tbody>
+                        </table>
+
+                        {% if current.is_courseRep %}
+                             <div> <a class="btn btn-info" href = "{% url 'edit_pending_assignment' assignment.id %}"  role="button"> edit</a> </div>
+
+                       
+                             <div>          .                 </div>
+
+                             <div> <a class="btn btn-danger" href = "{% url 'delete_pending_assignment' assignment.id %}"  role="button"> Delete</a> </div>
+                        {% else %}
+                        {% endif %}
+                    </strong>&nbsp; </p>
+                </div>
+            </div>
+         
+         {% endfor %}
+      {% else %}
+      <!--will add an empty box here-->
+     
+    
+        <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-6">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class="">NO ASSIGNMENT HAS BEEN UPDATED YET</h3>
+                             </div>
+                        </div>
+                   <div>
+                    <p><strong>Your Course Rep hasn't posted anything in the group about any pending assignment... its possible you don't have any pending assignment for now..Check the website later </strong>&nbsp; </p>
+                </div>
+            </div>
+            {% endif %}
+            <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'dashboard' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">GO BACK TO DASHBOARD</a></div>
+                    </div>
+    </section>
+{% endblock content %}

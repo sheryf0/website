@@ -1,0 +1,114 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% if current.is_courseRep %}
+ <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"  style="background-color: rgb(163, 143, 132);">
+ <div>
+ <a class="btn btn-info" href = "{% url 'add_upcoming_test' %}"  role="button"> Add Upcoming Test</a>
+ </div>
+ </section>
+
+{% else %}
+{% endif %}
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="pricing-table1-d" data-rv-view="59" style="background-color: rgb(163, 143, 132);">
+      {% if TN > 0 %}
+      <!---will add a for loop tto put thing ]s inside box-->
+         {% for test in UT %}
+            <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class=""></h3>
+                             </div>
+                        </div>
+                   <div class="mbr-plan__details">
+                    <p><strong>
+                        <table class = "table  table-bordered table-stripped">
+                            <tbody>
+                                <tr>
+                                    <th scope = "row" >COURSE NAME:</th>
+                                    <td class= "table-info">{{test.course_name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >DATE ANNOUNCED:</th>
+                                    <td class= "table-info">{{test.date_announced}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >TEST DATE AND TIME:</th>
+                                    <td class= "table-info">{{test.test_time}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >TEST VENUE:</th>
+                                    <td class= "table-info">{{test.venue}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >AREA OF CONCENTRATION:</th>
+                                    <td class= "table-info">{{test.area_of_concentration}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >TEST MARKS:</th>
+                                    <td class= "table-info">{{test.test_marks}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope = "row" >POSTED BY:</th>
+                                    <td class= "table-info">{{test.author}}</td>
+                                </tr>
+
+                            
+
+                                
+                            </tbody>
+                        </table>
+
+                        {% if current.is_courseRep %}
+                             <div> <a class="btn btn-info" href = "{% url 'edit_upcoming_test' test.id %}"  role="button"> edit</a> </div>
+
+                       
+                             <div>          .                 </div>
+
+                             <div> <a class="btn btn-danger" href = "{% url 'delete_upcoming_test' test.id %}"  role="button"> Delete</a> </div>
+                        {% else %}
+                        {% endif %}
+ 
+ 
+                    </strong>&nbsp; </p>
+                </div>
+            </div>
+         
+         {% endfor %}
+      {% else %}
+      <!--will add an empty box here-->
+     
+    
+        <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-6">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class="">NO TEST HAS BEEN UPDATED YET</h3>
+                             </div>
+                        </div>
+                   <div>
+                    <p><strong>Your Course Rep hasn't posted anything in the group about any upcoming test... its possible you don't have any upcoming test for now..Check the website later </strong>&nbsp; </p>
+                </div>
+            </div>
+            {% endif %}
+            <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'dashboard' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">GO BACK TO DASHBOARD</a></div>
+                    </div>
+    </section>
+ 
+
+{% endblock content %}
+
+ 
+
+

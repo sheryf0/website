@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+
+
+
+
+#ext_menu-2 .mbr-brand__name {
+  font-size: 16px;
+}
+#ext_menu-2.mbr-navbar--stuck .mbr-navbar__section {
+  background: #21201f;
+}
+#ext_menu-2 .mbr-navbar__hamburger {
+  color: #faaf40;
+}
+#ext_menu-2 .mbr-navbar__items a {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 10px;
+}
+#slider-3 H1 {
+  font-size: 22px;
+  font-family: 'Indie Flower', cursive;
+  text-align: right;
+  color: #fac51c;
+}
+#slider-3 P {
+  font-size: 19px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+#slider-3 .btn {
+  font-size: 9px;
+}
+#content5-b .mbr-header .mbr-header__text {
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'Bitter', serif;
+}
+#content5-b .mbr-header .mbr-header__subtext {
+  text-align: center;
+  color: #fff;
+}
+#content5-b .mbr-article {
+  color: #fff;
+  font-size: 13px;
+  font-family: 'Oswald', sans-serif;
+}

@@ -1,0 +1,63 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"  style="background-color: rgb(163, 143, 132);">
+ <div>
+<h4>You are currently logged in as:</h4>
+ </section>
+
+ <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="pricing-table1-d" data-rv-view="59" style="background-color: rgb(163, 143, 132);">
+     
+            <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class=""> ACCOUNT INFORMATION</h3>
+                             </div>
+                        </div>
+                   <div class="mbr-plan__details">
+                    <p><strong>
+                        <table class = "table  table-bordered table-stripped">
+                            <tbody>
+                                <tr>
+                                    <th scope = "row" >FIRST NAME:</th>
+                                    <td class= "table-info">{{current.first_name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >LAST NAME:</th>
+                                    <td class= "table-info">{{current.last_name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >DEPARTMENT:</th>
+                                    <td class= "table-info">{{gr_id.department}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >LEVEL:</th>
+                                    <td class= "table-info">{{gr_id.level}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </strong>&nbsp; </p>
+                    <div class="mbr-plan__buttons">
+                        <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'edit_profile' current.id %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">EDIT PROFILE</a></div>
+                    </div>
+    
+                    </div>
+                </div>
+            </div>
+         
+                     
+  
+
+
+{% endblock content %}
+
+
+

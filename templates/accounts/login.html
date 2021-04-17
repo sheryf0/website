@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock title %}
+
+{% block form_title %}Login{% endblock form_title %}
+
+
+
+{%block form %}
+<form method="POST" action="" class = "text-warning">
+    {% csrf_token %}
+    
+    {{form|crispy}}
+
+    <div class= "form-group">
+        <button class="btn btn-warning" type="submit"> login </button>
+    </div>
+</form>
+{% endblock form %} 
+{% if messages%}
+    {% for message in messag %}
+    <div class = "alert alert- {{message.tags}}"> 
+        {{message}}
+    </div>
+      {% endfor %}
+{% endif %}
+
+{% block talks %}
+<div class="d-flex justify-content-center links">
+  Don't have an account? <a href="{% url 'register' %}" class="ml-2">sign up</a>
+</div>
+<div class="d-flex justify-content-center links">
+  Forgot password?<a href="#" class="ml-2">reset password</a>
+</div>
+{% endblock talks %} 

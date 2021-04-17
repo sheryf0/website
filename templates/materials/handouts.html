@@ -1,0 +1,55 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"  style="background-color: rgb(163, 143, 132);">
+ <div>
+<h5>You have {{l}} available pdfs to download  just click on the download button below each block to download</h5>
+ </section>
+ <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="pricing-table1-d" data-rv-view="59" style="background-color: rgb(163, 143, 132);"> <div class="mbr-section__container mbr-section__container--std-top-padding container" style="padding-top: 31px; margin-bottom: -31px;">
+        {% for handout in Hd %}
+            <div class="row">
+                <div class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12">
+                    <div class="mbr-plan__box">
+                        <div class="mbr-plan__header">
+                             <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
+                                 <h3 class="">{{handout.name}}</h3>
+                             </div>
+                        </div>
+                   <div class="mbr-plan__details">
+                    <p><strong>
+                        <table class = "table  table-bordered table-stripped">
+                            <tbody>
+                                <tr>
+                                    <th scope = "row" >NAME:</th>
+                                    <td class= "table-info">{{handout.name}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >DESCRIPTION:</th>
+                                    <td class= "table-info"><p>{{handout.description}}</p></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope = "row" >YEAR USED:</th>
+                                    <td class= "table-info">{{handout.year_used}}</td>
+                                </tr>
+                             </tbody>
+                        </table>
+                        <div class="mbr-buttons mbr-buttons--center">
+                <a
+                  href="{{handout.related_file.url}}" download="{{handout.related_file.url}}"
+                  class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info"
+                  >Download</a
+                >
+              </div>
+                    </strong>&nbsp; </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </section>
+
+{% endblock content %}
+
+

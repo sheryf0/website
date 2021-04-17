@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+<section
+  class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"
+  id="pricing-table1-d"
+  data-rv-view="59"
+  style="background-color: rgb(163, 143, 132)"
+>
+  <div
+    class="mbr-section__container mbr-section__container--std-top-padding container"
+    style="padding-top: 31px; margin-bottom: -31px"
+  >
+    <div class="row">
+      <div
+        class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12"
+      >
+        <div class="mbr-plan__box">
+          <div class="mbr-plan__header">
+            <div
+              class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg"
+            >
+              <h3 class="">Add Pending Assignment</h3>
+            </div>
+          </div>
+          <div class="mbr-plan__details">
+            <p>
+              <strong>
+                <form action="" method="POST">
+                {%csrf_token%}
+                  
+                  {{form.as_p}}
+
+                 ... <input class="btn btn-primary" type="submit" value="Add">
+                </form> </strong
+              >&nbsp;
+            </p>
+          </div>
+        </div>
+        <div class="mbr-plan__buttons">
+           <div class="mbr-buttons mbr-buttons--center"><a href="{% url 'dashboard' %}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info">GO BACK TO DASHBOARD</a></div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+           
+</section>
+{% endblock content %} 

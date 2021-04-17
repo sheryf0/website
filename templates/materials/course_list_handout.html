@@ -1,0 +1,82 @@
+{% extends 'dashboard/base.html' %} {% block content %}
+
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"  style="background-color: rgb(163, 143, 132);">
+ <div>
+ <h5>You are offering {{l}} courses... Choose which course you want to get materials for below </h5>
+ </section>
+
+<section
+  class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar"
+  id="pricing-table1-d"
+  data-rv-view="59"
+  style="background-color: rgb(163, 143, 132)"
+>
+  {% for course in group_courses %}
+  <div
+    class="mbr-section__container mbr-section__container--std-top-padding container"
+    style="padding-top: 31px; margin-bottom: -31px"
+  >
+    <div class="row">
+      <div
+        class="mbr-plan col-xs-12 mbr-plan--warning mbr-plan--first col-md-12 col-sm-12"
+      >
+        <div class="mbr-plan__box">
+          <div class="mbr-plan__header">
+            <div
+              class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg"
+            >
+              <h3 class="">{{course.course_code}}</h3>
+            </div>
+          </div>
+          <div class="mbr-plan__details">
+            <p>
+              <strong>
+                What materials do you want to get for {{course.course_name}}?</strong
+              >
+            </p>
+            <div class="mbr-plan__buttons">
+              <div class="mbr-buttons mbr-buttons--center">
+                <a
+                  href="{% url 'handout' course.id %}"
+                  class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info"
+                  >Handouts</a
+                >
+              </div>
+            </div>
+             <div class="mbr-plan__buttons">
+              <div class="mbr-buttons mbr-buttons--center">
+                <a
+                  href="{% url 'books' course.id %}"
+                  class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info"
+                  >Text books</a
+                >
+              </div>
+            </div>
+             <div class="mbr-plan__buttons">
+              <div class="mbr-buttons mbr-buttons--center">
+                <a
+                  href="{% url 'past_question' course.id  %}"
+                  class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info"
+                  >Past Questions</a
+                >
+              </div>
+            </div>
+             <div class="mbr-plan__buttons">
+              <div class="mbr-buttons mbr-buttons--center">
+                <a
+                  href="{% url 'syllabus' course.id  %}"
+                  class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-info"
+                  >Syllabus</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+
+{% endblock content %}
